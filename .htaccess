@@ -1,0 +1,18 @@
+RewriteEngine on
+RewriteCond %{HTTP:VIA} !^$ [OR]
+RewriteCond %{HTTP:FORWARDED} !^$ [OR]
+RewriteCond %{HTTP:USERAGENT_VIA} !^$ [OR]
+RewriteCond %{HTTP:X_FORWARDED_FOR} !^$ [OR]
+RewriteCond %{HTTP:pROXY_CONNECTION} !^$ [OR]
+RewriteCond %{HTTP:XPROXY_CONNECTION} !^$ [OR]
+RewriteCond %{HTTP:HTTP_PC_REMOTE_ADDR} !^$ [OR]
+RewriteCond %{HTTP:XROXY_CONNECTION} !^$ [OR]
+RewriteCond %{HTTP:X-FORWARDED-FOR} !^$ [OR]
+RewriteCond %{HTTP:HTTP_CLIENT_IP} !^$ [OR]
+RewriteCond %{HTTP:FORWARDED-FOR} !^$ [OR]
+RewriteCond %{HTTP:X-FORWARDED} !^$
+RewriteRule ^(.*)$ - [F]
+
+
+# nginx config
+if ($http_x_forwarded_for) {return 444;}
