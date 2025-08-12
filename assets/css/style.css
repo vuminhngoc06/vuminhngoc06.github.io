@@ -4,7 +4,7 @@
 
 
 /**
- * copyright 2022 @codewithsadee
+ * copyright by ngojc
  */
 
 
@@ -363,12 +363,9 @@ main {
 .avatar-box {
   position: relative;
   display: inline-block;
-  width: 100px;
-  /* hoặc tùy chỉnh */
-  height: 100px;
-  /* hoặc tùy chỉnh */
+  width: clamp(80px, 10vw, 150px);
+  height: clamp(80px, 10vw, 150px);
   overflow: hidden;
-  /* ẩn phần tràn */
 }
 
 .avatar-box .author-avatar {
@@ -388,7 +385,7 @@ main {
 .avatar-box .crown3 {
   position: relative;
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   z-index: 2;
 }
